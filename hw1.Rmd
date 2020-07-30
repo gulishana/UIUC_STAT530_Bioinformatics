@@ -1,0 +1,30 @@
+---
+title: "R Notebook"
+output:
+  word_document: default
+  pdf_document: default
+  html_notebook: default
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+setwd("C:/Users/Gulishana/Desktop")
+x <- read.csv("hw1.csv")
+p <- 187/232
+n <- 116
+z<-x$x
+p.hat <- sum (2*as.numeric(z==2)+as.numeric(z==1))/(2*length(z))
+O <- table(z)
+E <- length(z)*c((1-p.hat)^2,2*p.hat*(1-p.hat),p.hat^2)
+T <- sum((O-E)^2/E)
+T
+pchisq(T,df=1,lower.tail=FALSE)
+ 
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
